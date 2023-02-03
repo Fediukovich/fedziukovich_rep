@@ -31,4 +31,4 @@
 # print('hello'.zfill(7))
 #
 # print('hello'.ljust(7, '-'))
-print('hello'.rjust(7, '-'))
+# print('hello'.rjust(7, '-'))
