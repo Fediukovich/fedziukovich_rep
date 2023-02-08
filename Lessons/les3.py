@@ -116,7 +116,9 @@
 # c = {4,2,6}
 # s = c.union(a, b)
 # print(c.union(a, b))
+# x = c | b | a
 # print(s)
+# print(x == s)
 
 # print(a.difference(b))
 # print(a - b)
@@ -125,14 +127,14 @@
 # print(b - a)
 
 # print(b.intersection(c,a))
-# print(a & b & c)
+# print(a & c & b)
 
 # print(b.symmetric_difference(c))
 # print(c.symmetric_difference(b))
-# print(b^c)
-#
-# a.update()
-# a |= b |= c
+# print(b ^ c)
+
+# a.update(b, c)
+# a |= b | c
 
 # frozenset
 
