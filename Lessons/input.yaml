@@ -1,0 +1,7 @@
+name: alex
+age: 34
+lang:
+  - ru
+  - en
+is_human: true
+city: null

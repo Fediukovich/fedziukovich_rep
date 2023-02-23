@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7b2c5a7-2607-4e0b-8776-0f6d40dc035d" name="Changes" comment="lesson6" />
+    <list default="true" id="c7b2c5a7-2607-4e0b-8776-0f6d40dc035d" name="Changes" comment="other">
+      <change afterPath="$PROJECT_DIR$/Lessons/config.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lessons/input.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lessons/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lessons/input.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lessons/les7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +61,7 @@
       <recent name="D:\Python\Belhard_python\Lessons" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.les5">
+  <component name="RunManager" selected="Python.les7">
     <configuration name="les4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Belhard_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +104,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="les7" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Belhard_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lessons" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lessons/les7.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Belhard_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,27 +138,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="practice3-3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Belhard_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Practice" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Practice/practice3-3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.les7" />
         <item itemvalue="Python.les5" />
         <item itemvalue="Python.practice4 (1)" />
         <item itemvalue="Python.practice4" />
         <item itemvalue="Python.les4" />
-        <item itemvalue="Python.practice3-3" />
       </list>
     </recent_temporary>
   </component>
@@ -333,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676559524083</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="other">
+      <created>1676957775183</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1676957775183</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,6 +376,7 @@
     <MESSAGE value="practice4" />
     <MESSAGE value="lesson5" />
     <MESSAGE value="lesson6" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson6" />
+    <MESSAGE value="other" />
+    <option name="LAST_COMMIT_MESSAGE" value="other" />
   </component>
 </project>
