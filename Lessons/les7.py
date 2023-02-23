@@ -202,9 +202,10 @@
 #         {'name': 'alex', 'surname': 'petrov'},
 #         {'name': 'pavel', 'surname': 'freeman'}
 #     ]
-#     wr = DictWriter(file, fieldnames=['name', 'surname'], delimiter=';')
-#     wr.writeheader()
-#     wr.writerows(data)
+    # wr = DictWriter(file, fieldnames=['name', 'surname'], delimiter=';')
+    # wr.writeheader()
+    # wr = writer(file)
+    # wr.writerows(data)
 # from yaml import safe_load, safe_dump
 #
 # with open('input.yaml', 'r', encoding='utf-8') as file:
