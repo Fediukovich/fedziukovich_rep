@@ -1,12 +1,17 @@
+from inspect import iscoroutinefunction
+
 from sqlalchemy import Column, INT, VARCHAR, DECIMAL, ForeignKey, create_engine, select, desc
 from sqlalchemy.orm import DeclarativeBase, declared_attr, sessionmaker, Session
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
 
 class Base(DeclarativeBase):
     id = Column(INT, primary_key=True)
 
     engine = create_engine('postgresql://dev:password@localhost:5432/bhcorp')
+    async_engine = create_async_engine('postgresql+asyncpg://dev:password@localhost:5432/bhcorp')
     session = sessionmaker(bind=engine)
+    async_session = async_sessionmaker(bind=async_engine)
 
     @declared_attr
     def __tablename__(cls) -> str:
@@ -14,38 +19,43 @@ class Base(DeclarativeBase):
 
     @staticmethod
     def create_session(func):
+        async def async_wrapper(*args, **kwargs):
+            async with Base.async_session() as session:
+                return await func(*args, **kwargs, session=session)
+
         def wrapper(*args, **kwargs):
             with Base.session() as session:
                 return func(*args, **kwargs, session=session)
-        return wrapper
+
+        return async_wrapper if iscoroutinefunction(func) else wrapper
 
     @create_session
-    def save(self, session: Session = None):
+    async def save(self, session: AsyncSession = None):
         session.add(self)
-        session.commit()
-        session.refresh(self)
+        await session.commit()
+        await session.refresh(self)
 
     @classmethod
     @create_session
-    def get(cls, id_, session: Session = None):
-        return session.get(cls, id_)
+    async def get(cls, id_, session: AsyncSession = None):
+        return await session.get(cls, id_)
 
     @create_session
-    def delete(self, session: Session = None):
-        session.delete(self)
-        session.commit()
+    async def delete(self, session: AsyncSession = None):
+        await session.delete(self)
+        await session.commit()
 
     @classmethod
     @create_session
-    def all(
+    async def all(
             cls,
             order_by: str = 'id',
             limit: int = None,
             offset: int = None,
-            session: Session = None,
+            session: AsyncSession = None,
             **kwargs
     ):
-        objs = session.scalars(
+        objs = await session.scalars(
             select(cls)
             .order_by(order_by)
             .limit(limit)
@@ -69,19 +79,19 @@ class Base(DeclarativeBase):
             order_by = desc(order_by.removeprefix('-'))
         setattr(self, '__filter', kwargs)
         setattr(self, '__order_by', order_by)
-        return self.__iter__()
+        return self.__aiter__()
 
-    def __iter__(self):
+    def __aiter__(self):
         return self
 
-    def __next__(self):
+    async def __anext__(self):
         i = getattr(self, 'i', False)
         if not i:
             setattr(self, 'i', 0)
         _filter = getattr(self, '__filter', {})
         order_by = getattr(self, '__order_by', 'id')
-        with self.session() as session:
-            obj = session.scalars(
+        async with self.async_session() as session:
+            obj = await session.scalars(
                 select(self.__class__)
                 .order_by(order_by)
                 .filter_by(**_filter)
@@ -94,7 +104,7 @@ class Base(DeclarativeBase):
                 return obj[0]
             else:
                 setattr(self, 'i', 0)
-                raise StopIteration
+                raise StopAsyncIteration
 
 
 class Category(Base):
@@ -117,3 +127,8 @@ class Product(Base):
 class ProductImage(Base):
     url = Column(VARCHAR(256), nullable=False)
     product_id = Column(ForeignKey('product.id', ondelete='CASCADE'), nullable=False)
+
+
+class User(Base):
+    email = Column(VARCHAR(128), nullable=False, unique=True)
+    hashed_password = Column(VARCHAR(512), nullable=False)
